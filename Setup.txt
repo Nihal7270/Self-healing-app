@@ -1,0 +1,12 @@
+INSTALL ARGO CD USING HELM
+helm repo add argo-cd https://argoproj.github.io/argo-helm
+helm repo update
+kubectl create namespace argocd
+helm install argocd argo-cd/argo-cd -n argocd 
+kubectl get all -n argocd
+
+
+
+EXPOSE ARGOCD SERVER:
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get all -n argocd
