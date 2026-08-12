@@ -27,7 +27,7 @@ spec:
 
       containers:
         - name: backend
-          image: madduruvamsi/nodejsimage:88d2aeb5232e7ec52d2aa607ec4d95bb26b9eec1
+          image: nihal727/nodejsimage:2d8bd3814812a203a72955af6669c8f5dbf0e5f0
 
           ports:
             - containerPort: 3000
