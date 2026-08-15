@@ -22,3 +22,39 @@ kubectl get all -n argocd
 TO GET ARGO CD PASSWORD:
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+To ENABLE METRIC SERVER:
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+ INSTALL PROMETHEUS & GRAFANA
+
+
+DOWNLOADING CHARTS PROMETHEUS & GRAFANA:
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+
+
+UPDATE HELM CHART REPOS:
+helm repo update
+helm repo list
+
+CREATE PROMETHEUS NAMESPACE:
+kubectl create namespace prometheus
+kubectl get ns
+
+INSTALL PROMETHEUS:
+helm template prometheus-community/prometheus
+
+helm install prometheus prometheus-community/prometheus --namespace prometheus
+
+CREATE GRAFANA NAMESPACE:
+kubectl create namespace grafana
+
+INSTALL GRAFANA:
+helm template grafana grafana/grafana
+
+
+helm install grafana grafana/grafana --namespace grafana  --set adminPassword='PASS' --set  service.type=LoadBalancer
+
+kubectl get all -n grafana
+kubectl get svc -n grafana
