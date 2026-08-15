@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Nihal7270/Self-healing-app.git
-    targetRevision: HEAD
+    targetRevision: test
     path: apps/backend
   destination:
     server: https://kubernetes.default.svc
