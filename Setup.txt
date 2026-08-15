@@ -58,3 +58,6 @@ helm install grafana grafana/grafana --namespace grafana  --set adminPassword='P
 
 kubectl get all -n grafana
 kubectl get svc -n grafana
+
+PROMETHEUS URL:
+http://prometheus-server.prometheus.svc.cluster.local/
